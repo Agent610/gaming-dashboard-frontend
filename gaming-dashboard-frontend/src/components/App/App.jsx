@@ -13,6 +13,10 @@ function Profile() {
   return <h1>Profile Page</h1>;
 }
 
+function Settings() {
+  return <h1>Settings Pages</h1>;
+}
+
 function App() {
   return (
     <Routes>
@@ -20,6 +24,7 @@ function App() {
         <Route index element={<Dashboard />} />
         <Route path="community" element={<Community />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
     </Routes>
   );

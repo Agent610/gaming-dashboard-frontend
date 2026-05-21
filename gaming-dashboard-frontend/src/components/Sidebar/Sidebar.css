@@ -1,0 +1,81 @@
+/*Desktop View */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #0f0f0f;
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #222;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  color: #aaa;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.link:hover {
+  background: #1f1f1f;
+  color: white;
+}
+
+/* Active route styling */
+.link.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/*Tablet View */
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}
+
+/*Mobile View */
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    padding: 12px 8px;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .link {
+    font-size: 0;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}
