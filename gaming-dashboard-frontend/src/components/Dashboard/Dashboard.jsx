@@ -40,7 +40,7 @@ function Dashboard() {
 
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>Dashboard Page</h2>
 
       {posts.map((post) => (
         <div key={post._id} style={{ marginBottom: "10px" }}>
