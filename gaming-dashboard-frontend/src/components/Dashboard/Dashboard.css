@@ -1,0 +1,62 @@
+/*DESKTOP VIEW */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* STATS ROW */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+}
+
+/* MAIN GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 200px;
+}
+
+.large {
+  min-height: 420px;
+}
+
+/* TABLET VIEW */
+@media (max-width: 1024px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE VIEW*/
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    font-size: 13px;
+    padding: 16px;
+  }
+}
