@@ -4,23 +4,36 @@ import { NavLink } from "react-router-dom";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="logo">🎮 Gaming Dashboard</div>
+      <div className="sidebar__logo">🎮 Gaming Dashboard</div>
 
-      <nav className="nav">
-        <NavLink to="/" end className="link">
-          Dashboard
+      <nav className="sidebar__nav">
+        <NavLink
+          to="/dashboard"
+          end
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
+          🏠 Dashboard
         </NavLink>
 
-        <NavLink to="/community" className="link">
-          Community
+        <NavLink
+          to="/dashboard/community"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
+          💬 Community
         </NavLink>
 
-        <NavLink to="/profile" className="link">
-          Profile
+        <NavLink
+          to="/dashboard/profile"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
+          👤 Profile
         </NavLink>
 
-        <NavLink to="/settings" className="link">
-          Settings
+        <NavLink
+          to="/dashboard/settings"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
+          ⚙️ Settings
         </NavLink>
       </nav>
     </div>

@@ -1,81 +1,74 @@
-/*Desktop View */
+/*Desktop */
 .sidebar {
   width: 260px;
   height: 100vh;
-  background: #0f0f0f;
+  background: #0f172a;
   color: white;
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #222;
+  border-right: 1px solid #1e293b;
 }
 
-.logo {
+/* LOGO */
+.sidebar__logo {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  color: #60a5fa;
 }
 
-.nav {
+/* NAV */
+.sidebar__nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
+/* LINK BASE */
 .link {
-  color: #aaa;
   text-decoration: none;
-  padding: 10px 12px;
-  border-radius: 8px;
-  transition: 0.2s ease;
+  color: #94a3b8;
+  padding: 12px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
+/* HOVER */
 .link:hover {
-  background: #1f1f1f;
+  background: #1e293b;
   color: white;
 }
 
-/* Active route styling */
-.link.active {
-  background: #2a2a2a;
-  color: #fff;
+/* ACTIVE ROUTE */
+.active {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
-/*Tablet View */
-
-@media screen and (max-width: 1024px) {
-  .sidebar {
-    width: 200px;
-    padding: 16px;
-  }
-
-  .logo {
-    font-size: 16px;
-  }
-
-  .link {
-    font-size: 14px;
-  }
-}
-
-/*Mobile View */
-
+/* MOBILE */
 @media screen and (max-width: 768px) {
   .sidebar {
-    width: 70px;
-    padding: 12px 8px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 
-  .logo {
-    font-size: 12px;
-    text-align: center;
+  .sidebar__nav {
+    flex-direction: row;
+    gap: 8px;
   }
 
   .link {
-    font-size: 0;
     padding: 10px;
-    width: 100%;
-    text-align: center;
+    font-size: 14px;
+  }
+
+  .sidebar__logo {
+    margin-bottom: 0;
   }
 }

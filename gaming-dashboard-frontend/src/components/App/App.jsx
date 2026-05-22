@@ -14,7 +14,7 @@ import { isAuthenticated } from "../../utils/auth.js";
 function App() {
   return (
     <Routes>
-      <Route
+      {/* <Route
         path="/"
         element={
           isAuthenticated() ? (
@@ -23,19 +23,21 @@ function App() {
             <Navigate to="/login" replace />
           )
         }
-      />
+      /> */}
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      <Route
+      {/* <Route
         path="/dashboard"
         element={
           <ProtectedRoute>
             <AppLayout />
           </ProtectedRoute>
         }
-      >
+      > */}
+      <Route path="/dashboard" element={<AppLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="community" element={<Community />} />
         <Route path="profile" element={<Profile />} />
