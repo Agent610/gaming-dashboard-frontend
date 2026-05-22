@@ -1,122 +1,70 @@
-// import "../Dashboard/Dashboard.css";
-// function Dashboard() {
-//   return (
-//     <div className="dashboard">
-//       <div className="stats">
-//         <div className="card">🎮 Games played</div>
-//         <div className="card">🔥 Active users</div>
-//         <div className="card">💬 Posts</div>
-//         <div className="card">🏆 Achievements</div>
-//       </div>
-
-//       <div className="grid">
-//         <div className="box large">Recent Activity</div>
-//         <div className="box">Trending Games</div>
-//         <div className="box">Community Feed</div>
-//       </div>
-//     </div>
-//   );
-// }
-// import { useEffect, useState } from "react";
-// import API from "../../services/api.js";
-
-// function Dashboard() {
-//   const [posts, setPosts] = useState([]);
-
-//   useEffect(() => {
-//     const fetchPosts = async () => {
-//       try {
-//         const res = await API.get("/posts");
-//         setPosts(res.data);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     };
-
-//     fetchPosts();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h2>Dashboard Page</h2>
-
-//       {posts.map((post) => (
-//         <div key={post._id} style={{ marginBottom: "10px" }}>
-//           <h4>{post.user.username}</h4>
-//           <p>{post.content}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
 import "./Dashboard.css";
 
 function Dashboard() {
   return (
     <div className="dashboard">
-      {/* Welcome Section */}
-      <section className="dashboard__hero">
+      {/* HERO */}
+      <section className="hero">
         <div>
-          <h1>Welcome Back Gamer 🎮</h1>
-          <p>Track activity, connect with players, and explore communities.</p>
+          <h1>Welcome Back, Gamer 🎮</h1>
+          <p>Here’s your activity overview</p>
         </div>
 
-        <button className="dashboard__hero-btn">Explore Games</button>
+        <button className="hero__btn">+ Start Game Session</button>
       </section>
 
-      {/* Stats Cards */}
-      <section className="dashboard__stats">
-        <div className="stat-card">
-          <h3>Games Played</h3>
+      {/* STATS GRID */}
+      <section className="stats">
+        <div className="card stat">
+          <h4>Games Played</h4>
           <p>128</p>
         </div>
 
-        <div className="stat-card">
-          <h3>Friends Online</h3>
-          <p>24</p>
+        <div className="card stat">
+          <h4>Wins</h4>
+          <p>74</p>
         </div>
 
-        <div className="stat-card">
-          <h3>Achievements</h3>
-          <p>52</p>
+        <div className="card stat">
+          <h4>Friends</h4>
+          <p>32</p>
+        </div>
+
+        <div className="card stat">
+          <h4>XP Level</h4>
+          <p>Level 18</p>
         </div>
       </section>
 
-      {/* Activity Feed */}
-      <section className="dashboard__feed">
-        <div className="feed-card">
+      {/* MAIN GRID */}
+      <section className="main">
+        {/* ACTIVITY FEED */}
+        <div className="card feed">
           <h3>Recent Activity</h3>
 
           <div className="feed-item">
-            <p>🔥 Alex reached Diamond Rank</p>
+            <span>🔥</span>
+            <p>You won a match in Valorant</p>
           </div>
 
           <div className="feed-item">
-            <p>🎯 Sarah unlocked a new achievement</p>
+            <span>🏆</span>
+            <p>Achievement unlocked: Sharpshooter</p>
           </div>
 
           <div className="feed-item">
-            <p>⚡ Mike joined your gaming squad</p>
+            <span>🎮</span>
+            <p>Joined a new squad</p>
           </div>
         </div>
 
-        <div className="feed-card">
-          <h3>Trending Games</h3>
+        {/* QUICK ACTIONS */}
+        <div className="card actions">
+          <h3>Quick Actions</h3>
 
-          <div className="feed-item">
-            <p>Cyberpunk 2077</p>
-          </div>
-
-          <div className="feed-item">
-            <p>Valorant</p>
-          </div>
-
-          <div className="feed-item">
-            <p>Elden Ring</p>
-          </div>
+          <button>🎯 Find Squad</button>
+          <button>💬 Open Community</button>
+          <button>⚙️ Settings</button>
         </div>
       </section>
     </div>

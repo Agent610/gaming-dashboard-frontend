@@ -1,0 +1,90 @@
+/*Desktop View */
+.settings {
+  padding: 24px;
+  background: #0f172a;
+  color: white;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.settings__header {
+  margin-bottom: 20px;
+}
+
+.settings__header h1 {
+  margin-bottom: 6px;
+}
+
+.settings__header p {
+  color: #94a3b8;
+}
+
+/* CARD */
+.settings__card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+/* INPUTS */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.field input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: white;
+}
+
+/* BUTTON */
+.save-btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+/* TOGGLES */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #334155;
+}
+
+/* SECURITY BUTTONS */
+.danger-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #334155;
+  color: white;
+  cursor: pointer;
+}
+
+.danger-btn:hover {
+  background: #475569;
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+  .settings {
+    padding: 16px;
+  }
+}
