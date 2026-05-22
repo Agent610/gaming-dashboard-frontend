@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import AppLayout from "../Layout/AppLayout.jsx";
 import Dashboard from "../Dashboard/Dashboard.jsx";
@@ -9,15 +9,27 @@ import Profile from "../Profile/Profile.jsx";
 import Settings from "../Settings/Settings.jsx";
 
 import ProtectedRoute from "../ProtectedRoute.jsx";
+import { isAuthenticated } from "../../utils/auth.js";
 
 function App() {
   return (
     <Routes>
+      <Route
+        path="/"
+        element={
+          isAuthenticated() ? (
+            <Navigate to="/dashboard" replace />
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        }
+      />
+
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
       <Route
-        path="/"
+        path="/dashboard"
         element={
           <ProtectedRoute>
             <AppLayout />
@@ -34,19 +46,3 @@ function App() {
 }
 
 export default App;
-
-// // function Dashboard() {
-// //   return <h1>Dashboard Page</h1>;
-// // }
-
-// function Community() {
-//   return <h1>Community Page</h1>;
-// }
-
-// function Profile() {
-//   return <h1>Profile Page</h1>;
-// }
-
-// function Settings() {
-//   return <h1>Settings Pages</h1>;
-// }
