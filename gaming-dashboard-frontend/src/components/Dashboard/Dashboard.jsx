@@ -1,38 +1,108 @@
 import "./Dashboard.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import GameSession from "../GameSessionModal/GameSessionModal";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const [username] = useState("Alex");
+  const [avatar] = useState("");
+  const [searchedGame, setSearchedGame] = useState("");
+  const [stats] = useState({
+    gamesPlayed: "",
+    consoles: "",
+    friends: "",
+    achievements: "",
+    sessionsThisWeek: "",
+    hoursPlayed: "",
+    winRate: "",
+    favoriteGenre: "",
+  });
+
+  const [activities] = useState([]);
+  const [showSessionModal, setShowSessionModal] = useState(false);
+
   return (
     <div className="dashboard">
-      {/* HERO */}
       <section className="hero">
-        <div>
-          <h1>Welcome Back, Gamer 🎮</h1>
-          <p>Here’s your activity overview</p>
+        <div className="hero__left">
+          <div className="hero__user">
+            <div className="hero__avatar">
+              {avatar ? (
+                <img src={avatar} alt="avatar" />
+              ) : (
+                <span>{username.charAt(0)}</span>
+              )}
+            </div>
+
+            <div>
+              <h1>Welcome Back, {username} 🎮</h1>
+              <p>Here’s your activity overview</p>
+            </div>
+          </div>
+
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search for a game..."
+              value={searchedGame}
+              onChange={(e) => setSearchedGame(e.target.value)}
+            />
+
+            {searchedGame && (
+              <p className="searched-game">Recently searched: {searchedGame}</p>
+            )}
+          </div>
         </div>
 
-        <button className="hero__btn">+ Start Game Session</button>
+        <button className="hero__btn" onClick={() => setShowSessionModal(true)}>
+          + Start Game Session
+        </button>
+        {showSessionModal && (
+          <GameSession onClose={() => setShowSessionModal(false)} />
+        )}
       </section>
 
       {/* STATS GRID */}
       <section className="stats">
         <div className="card stat">
           <h4>Games Played</h4>
-          <p>128</p>
+          <p>{stats.gamesPlayed || "—"}</p>
         </div>
 
         <div className="card stat">
           <h4>Consoles</h4>
-          <p>Playstation, Xbox, Nintendo</p>
+          <p>{stats.consoles || "—"}</p>
         </div>
 
         <div className="card stat">
           <h4>Friends</h4>
-          <p>32</p>
+          <p>{stats.friends || "—"}</p>
+        </div>
+
+        <div className="card stat">
+          <h4>Achievements</h4>
+          <p>{stats.achievements || "—"}</p>
         </div>
 
         <div className="card stat">
           <h4>Game Sessions this week</h4>
-          <p>1</p>
+          <p>{stats.sessionsThisWeek || "—"}</p>
+        </div>
+
+        <div className="card stat">
+          <h4>Hours Played</h4>
+          <p>{stats.hoursPlayed || "—"}</p>
+        </div>
+
+        <div className="card stat">
+          <h4>Win Rate</h4>
+          <p>{stats.winRate || "—"}</p>
+        </div>
+
+        <div className="card stat">
+          <h4>Favorite Genre</h4>
+          <p>{stats.favoriteGenre || "—"}</p>
         </div>
       </section>
 
@@ -58,13 +128,18 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* QUICK ACTIONS */}
         <div className="card actions">
           <h3>Quick Actions</h3>
 
-          <button>🎯 Find Squad</button>
-          <button>💬 Open Community</button>
-          <button>⚙️ Settings</button>
+          <button onClick={() => navigate("/dashboard/community")}>
+            🎯 Find Squad
+          </button>
+          <button onClick={() => navigate("/dashboard/community")}>
+            💬 Open Community
+          </button>
+          <button onClick={() => navigate("/dashboard/settings")}>
+            ⚙️ Settings
+          </button>
         </div>
       </section>
     </div>

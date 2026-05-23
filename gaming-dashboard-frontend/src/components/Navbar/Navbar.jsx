@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="search">
-        <input type="text" placeholder="Search games, posts, and users" />
+        <input type="text" placeholder="Search posts, and users" />
       </div>
 
       <div className="right">
