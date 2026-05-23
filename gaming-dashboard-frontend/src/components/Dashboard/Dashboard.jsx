@@ -21,8 +21,8 @@ function Dashboard() {
         </div>
 
         <div className="card stat">
-          <h4>Wins</h4>
-          <p>74</p>
+          <h4>Consoles</h4>
+          <p>Playstation, Xbox, Nintendo</p>
         </div>
 
         <div className="card stat">
@@ -31,8 +31,8 @@ function Dashboard() {
         </div>
 
         <div className="card stat">
-          <h4>XP Level</h4>
-          <p>Level 18</p>
+          <h4>Game Sessions this week</h4>
+          <p>1</p>
         </div>
       </section>
 
