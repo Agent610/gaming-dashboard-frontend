@@ -77,4 +77,4 @@ function GameSession({ onClose }) {
   );
 }
 
-export default GameSession;
+export default GameSessionModal;

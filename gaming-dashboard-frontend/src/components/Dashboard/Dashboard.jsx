@@ -1,26 +1,38 @@
 import "./Dashboard.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import GameSession from "../GameSessionModal/GameSessionModal";
+import GameSessionModal from "../GameSessionModal/GameSessionModal";
+import Hero from "../Hero/Hero";
+import SearchBar from "../SearchBar/SearchBar";
+import StatsGrid from "../StatsGrid/StatsGrid";
+import ActivityFeed from "../ActivityFeed/ActivityFeed";
 
 function Dashboard() {
   const navigate = useNavigate();
+  //User Data
   const [username] = useState("Alex");
   const [avatar] = useState("");
+
+  // Search
+  const [recentGame, setRecentGame] = useState("");
   const [searchedGame, setSearchedGame] = useState("");
-  const [stats] = useState({
-    gamesPlayed: "",
+
+  //Modal
+  const [showSessionModal, setShowSessionModal] = useState(false);
+
+  const [stats, setStats] = useState({
+    gamesPlayed: 0,
     consoles: "",
-    friends: "",
-    achievements: "",
-    sessionsThisWeek: "",
-    hoursPlayed: "",
-    winRate: "",
+    friends: 0,
+    achievements: 0,
+    sessionsThisWeek: 0,
+    hoursPlayed: 0,
+    winRate: 0,
     favoriteGenre: "",
   });
 
-  const [activities] = useState([]);
-  const [showSessionModal, setShowSessionModal] = useState(false);
+  //Activity
+  const [activities, setActivites] = useState([]);
 
   return (
     <div className="dashboard">
