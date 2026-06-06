@@ -1,4 +1,5 @@
 import "./Profile.css";
+import Card from "../Card/Card";
 
 function Profile() {
   return (
@@ -17,25 +18,25 @@ function Profile() {
       </section>
 
       <section className="profile__stats">
-        <div className="card">
+        <Card>
           <h4>Wins</h4>
           <p>74</p>
-        </div>
+        </Card>
 
-        <div className="card">
+        <Card>
           <h4>Matches</h4>
           <p>128</p>
-        </div>
+        </Card>
 
-        <div className="card">
+        <Card>
           <h4>Rank</h4>
           <p>Diamond III</p>
-        </div>
+        </Card>
 
-        <div className="card">
+        <Card>
           <h4>Friends</h4>
           <p>32</p>
-        </div>
+        </Card>
       </section>
 
       <section className="profile__bio card">

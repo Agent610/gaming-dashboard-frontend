@@ -6,6 +6,11 @@ import Hero from "../Hero/Hero";
 import SearchBar from "../SearchBar/SearchBar";
 import StatsGrid from "../StatsGrid/StatsGrid";
 import ActivityFeed from "../ActivityFeed/ActivityFeed";
+import { useEffect } from "react";
+import {
+  loadDashboardData,
+  saveDashboardData,
+} from "../../utils/dashboardStorage";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -13,26 +18,42 @@ function Dashboard() {
   const [username] = useState("Alex");
   const [avatar] = useState("");
 
+  // const [recentGame, setRecentGame] = useState("");
+
+  const saved = loadDashboardData();
+
   // Search
-  const [recentGame, setRecentGame] = useState("");
+  const [recentGame, setRecentGame] = useState(saved?.recentGame || "");
   const [searchedGame, setSearchedGame] = useState("");
 
   //Modal
   const [showSessionModal, setShowSessionModal] = useState(false);
 
-  const [stats, setStats] = useState({
-    gamesPlayed: 0,
-    consoles: "",
-    friends: 0,
-    achievements: 0,
-    sessionsThisWeek: 0,
-    hoursPlayed: 0,
-    winRate: 0,
-    favoriteGenre: "",
-  });
+  //Stats
+  const [stats, setStats] = useState(
+    saved?.stats || {
+      gamesPlayed: 0,
+      consoles: "",
+      friends: 0,
+      achievements: 0,
+      sessionsThisWeek: 0,
+      hoursPlayed: 0,
+      winRate: 0,
+      favoriteGenre: "",
+    },
+  );
 
   //Activity
-  const [activities, setActivites] = useState([]);
+  // const [activities, setActivites] = useState(saved?.activities || []);
+
+  //Save
+  useEffect(() => {
+    saveDashboardData({
+      recentGame,
+      stats,
+      activities,
+    });
+  }, [recentGame, stats, activities]);
 
   return (
     <div className="dashboard">
@@ -71,7 +92,7 @@ function Dashboard() {
           + Start Game Session
         </button>
         {showSessionModal && (
-          <GameSession onClose={() => setShowSessionModal(false)} />
+          <GameSessionModal onClose={() => setShowSessionModal(false)} />
         )}
       </section>
 

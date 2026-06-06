@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function GameSession({ onClose }) {
+function GameSessionModal({ onClose }) {
   const [sessionForm, setSessionForm] = useState({
     game: "",
     console: "",
